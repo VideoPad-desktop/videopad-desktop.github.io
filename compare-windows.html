@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VideoPad vs Shotcut vs OpenShot — Best Choice for Simple Windows Editing</title>
+  <meta name="description" content="Compare VideoPad, Shotcut, and OpenShot on Windows: ease of use, features, speed, and learning curve. Get a safe Windows installer for VideoPad.">
+  <link rel="canonical" href="https://videopad-desktop.github.io/compare-windows.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VideoPad vs Shotcut vs OpenShot — Best Choice for Simple Windows Editing">
+  <meta property="og:description" content="A practical comparison for Windows users. See where each editor shines and download the official VideoPad installer.">
+  <meta property="og:image" content="https://videopad-desktop.github.io/og-image.png">
+  <meta property="og:url" content="https://videopad-desktop.github.io/compare-windows.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- last-modified meta (filled by JS) -->
+  <meta name="last-modified" content="">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f1720;
+      --text:#f5f7fa;
+      --muted:#9aa5b1;
+      --accent:#d32f2f; /* red CTA */
+      --accent-2:#1e88e5; /* blue secondary */
+      --max-width:1100px;
+      --radius:10px;
+      --focus: 3px solid rgba(30,136,229,0.35);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;background:var(--bg);color:var(--text);margin:0}
+    a{color:var(--accent-2);text-decoration:none}
+    header{border-bottom:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .container{max-width:var(--max-width);margin:0 auto;padding:22px}
+    .nav{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{width:44px;height:44px}
+    nav ul{display:flex;gap:10px;align-items:center;list-style:none;padding:0;margin:0}
+    nav li a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
+    nav li a:hover, nav li a:focus{color:var(--text);background:rgba(255,255,255,0.02)}
+
+    main{padding:32px 0}
+    .hero{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    h1{margin:0 0 10px;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent-2);border:2px solid rgba(255,255,255,0.04)}
+    .btn.inline{padding:8px 12px;font-weight:600}
+    .btn:focus{outline:none;box-shadow:var(--focus)}
+
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+    .list{display:flex;flex-direction:column;gap:8px}
+
+    .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(30,136,229,0.15);color:#7ec0ff}
+    .badge.vp{background:rgba(211,47,47,0.15);color:#ffb3b3}
+
+    details{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+    details+details{margin-top:8px}
+
+    footer{padding:26px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    /* Cookie banner */
+    .cookie{position:fixed;left:20px;right:20px;bottom:20px;background:var(--panel);padding:14px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.7);display:flex;gap:14px;align-items:center;z-index:999}
+    .cookie p{margin:0;color:var(--muted)}
+    .cookie .actions{margin-left:auto;display:flex;gap:8px}
+    .cookie .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .grid3{grid-template-columns:1fr;}
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav ul{display:none}
+      .grid2{grid-template-columns:1fr}
+    }
+    @media (max-width:480px){
+      .container{padding:14px}
+      h1{font-size:22px}
+      .card{padding:14px}
+    }
+
+    a:focus, button:focus{outline:none;box-shadow:var(--focus);border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <svg aria-hidden="true"><use href="#logo-vp"></use></svg>
+        <div>
+          <div style="font-weight:800">VideoPad Desktop</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">Windows — Compare</div>
+        </div>
+      </div>
+      <nav style="margin-left:auto">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="download-windows.html">Download</a></li>
+          <li><a href="features-windows.html">Features</a></li>
+          <li><a href="beginner-guide.html">Beginner's Guide</a></li>
+          <li><a href="export-youtube-tiktok.html">Export Presets</a></li>
+          <li><a href="troubleshooting-windows.html">Troubleshooting</a></li>
+          <li><a href="free-licensing-safety.html">Licensing</a></li>
+          <li><a href="compare-windows.html" aria-current="page">Compare</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero">
+      <section>
+        <div class="card">
+          <h1>VideoPad vs Shotcut vs OpenShot — Best Choice for Simple Windows Editing</h1>
+          <p class="lead">A practical comparison for Windows users. If you want the fastest route from raw clips to a finished YouTube or TikTok video, VideoPad focuses on simplicity and quick exports.</p>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+            <a class="btn" id="downloadTop" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-download"/></svg>
+              Download VideoPad for Windows
+            </a>
+            <a class="btn secondary" href="features-windows.html">
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-compare"/></svg>
+              See VideoPad features
+            </a>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3 style="margin-top:0"><span class="badge vp">VideoPad</span> Ease of use</h3>
+            <ul class="small list">
+              <li>Clean UI with timeline and storyboard modes</li>
+              <li>Fast start for beginners; minimal setup</li>
+              <li>Built‑in presets for YouTube/TikTok exports</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0"><span class="badge">Shotcut</span> Flexibility</h3>
+            <ul class="small list">
+              <li>Open‑source with many filters and formats</li>
+              <li>More granular controls; steeper learning curve</li>
+              <li>Good for users who want deeper customization</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0"><span class="badge">OpenShot</span> Simplicity</h3>
+            <ul class="small list">
+              <li>Basic interface for simple cuts and transitions</li>
+              <li>Feature set varies by version; stability depends on system</li>
+              <li>Suitable for very simple edits and titles</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3 style="margin-top:0">Feature highlights (Windows)</h3>
+            <ul class="small list">
+              <li><b>VideoPad:</b> Timeline edits, transitions/effects, audio tools, screen capture, basic green screen, fast MP4 exports</li>
+              <li><b>Shotcut:</b> Broad codec support, powerful filters, detailed parameter controls</li>
+              <li><b>OpenShot:</b> Quick cuts, titles, and simple transitions; lightweight approach</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Who should choose what?</h3>
+            <ul class="small list">
+              <li><b>Choose VideoPad</b> if you want a beginner‑friendly path to social‑ready videos with minimal tweaking.</li>
+              <li><b>Choose Shotcut</b> if you prefer open‑source flexibility and don’t mind a deeper toolset.</li>
+              <li><b>Choose OpenShot</b> for very basic projects and simple titles with a straightforward UI.</li>
+            </ul>
+            <div style="margin-top:8px">
+              <a class="btn inline" id="downloadInline1" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+                <svg width="14" height="14" aria-hidden="true"><use href="#icon-download"/></svg>
+                Download vppsetup.exe
+              </a>
+              <a class="btn inline secondary" href="beginner-guide.html">
+                <svg width="14" height="14" aria-hidden="true"><use href="#icon-timeline"/></svg>
+                Beginner workflow
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3 style="margin-top:0">Quick Answer</h3>
+          <p class="small">For simple Windows editing and fast exports, VideoPad’s streamlined workflow is often the most efficient. Shotcut offers more advanced controls, while OpenShot focuses on basic projects.</p>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Quick downloads</h3>
+          <a class="btn" id="downloadSide" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+            <svg width="16" height="16" aria-hidden="true"><use href="#icon-download"/></svg>
+            Download installer
+          </a>
+          <div style="margin-top:10px" class="small">New to editing? Read the <a href="beginner-guide.html">Beginner's Guide</a> and try <a href="export-youtube-tiktok.html">export presets</a>.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="margin-top:22px">
+      <div class="card footer-grid">
+        <div>
+          <div style="font-weight:800">VideoPad Desktop</div>
+          <div class="small">Hosted on GitHub Pages — <a href="https://videopad-desktop.github.io/">videopad-desktop.github.io</a></div>
+          <div style="height:8px"></div>
+          <div class="small">We may earn commissions for referrals. The installer file is provided by NCH Software: <a href="https://www.nchsoftware.com/">nchsoftware.com</a>.</div>
+        </div>
+        <div style="text-align:right">
+          <div class="small">Need privacy? You can <a href="#cookie" onclick="scrollToCookie(event)">manage cookies</a> in the cookie panel.</div>
+          <div style="height:8px"></div>
+          <div class="small">Last updated: <span id="lastModified">—</span></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SVG symbols -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="logo-vp" viewBox="0 0 48 48">
+      <rect x="0" y="0" width="48" height="48" rx="8" fill="#0f1720"></rect>
+      <path d="M12 34v-20l14 10-14 10z" fill="#d32f2f"></path>
+      <circle cx="36" cy="12" r="6" fill="#1e88e5"></circle>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM12 3v10.59l3.29-3.3 1.42 1.42L12 17.41l-4.71-4.7 1.42-1.42L12 13.59V3h0z"/></symbol>
+    <symbol id="icon-timeline" viewBox="0 0 24 24"><path fill="currentColor" d="M3 13h18v-2H3v2zM7 6h10v2H7V6zM7 16h10v2H7v-2z"/></symbol>
+    <symbol id="icon-export" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM11 4h2v8h3l-4 4-4-4h3z"/></symbol>
+    <symbol id="icon-compare" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H5a2 2 0 0 0-2 2v11h7V3zm11 6h-7v11h7V9zM12 3h3v4h-3z"/></symbol>
+  </svg>
+
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div style="max-width:640px">
+      <strong>We use cookies for analytics.</strong>
+      <p style="margin-top:6px">Allow Google Analytics to help us improve this site. You can Accept, Decline, or Close to decide later.</p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="cookieAccept">Accept</button>
+      <button class="btn ghost" id="cookieDecline">Decline</button>
+      <button class="btn ghost" id="cookieClose" aria-label="Close cookie banner">Close</button>
+    </div>
+  </div>
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Which editor is easiest for beginners on Windows?", "acceptedAnswer": {"@type": "Answer", "text": "For quick projects and social videos, VideoPad offers a streamlined workflow with simple export presets. Shotcut provides more advanced controls, while OpenShot focuses on very basic edits."}},
+      {"@type": "Question", "name": "Is VideoPad faster to export?", "acceptedAnswer": {"@type": "Answer", "text": "VideoPad emphasizes fast MP4 exports with presets for YouTube and TikTok. Actual speed depends on your PC and project complexity."}},
+      {"@type": "Question", "name": "Can I switch later if I need more features?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can start with VideoPad for speed and simplicity, then move to other tools like Shotcut if you require deeper controls."}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VideoPad Video Editor",
+    "url": "https://videopad-desktop.github.io/compare-windows.html",
+    "description": "Comparison page for Windows users: VideoPad vs Shotcut vs OpenShot, with a safe installer link for VideoPad.",
+    "applicationCategory": "VideoEditing",
+    "operatingSystem": ["Windows 10","Windows 11"],
+    "softwareVersion": "latest",
+    "downloadUrl": "https://www.nchsoftware.com/videopad/de/vppsetup.exe",
+    "publisher": {"@type": "Organization", "name": "VideoPad Desktop (GitHub Pages)", "url": "https://videopad-desktop.github.io/"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://videopad-desktop.github.io/"},
+      {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://videopad-desktop.github.io/compare-windows.html"}
+    ]
+  }
+  </script>
+
+  <script>
+    (function(){
+      var GA_ID = 'G-566XV70669';
+      var installerFileName = 'vppsetup.exe';
+      var installerUrl = 'https://www.nchsoftware.com/videopad/de/vppsetup.exe';
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} // wrapper
+
+      function loadGA(){
+        if(window._gaLoaded) return;
+        window._gaLoaded = true;
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(gtagScript);
+        gtag('js', new Date());
+        gtag('config', GA_ID, { 'anonymize_ip': true });
+      }
+
+      function setConsent(state){
+        try{localStorage.setItem('vp_ga_consent', state);}catch(e){}
+      }
+      function getConsent(){
+        try{return localStorage.getItem('vp_ga_consent');}catch(e){return null}
+      }
+
+      var banner = document.getElementById('cookieBanner');
+      var btnAccept = document.getElementById('cookieAccept');
+      var btnDecline = document.getElementById('cookieDecline');
+      var btnClose = document.getElementById('cookieClose');
+
+      btnAccept.addEventListener('click', function(){ setConsent('granted'); loadGA(); banner.style.display='none'; });
+      btnDecline.addEventListener('click', function(){ setConsent('denied'); banner.style.display='none'; });
+      btnClose.addEventListener('click', function(){ banner.style.display='none'; });
+
+      (function(){
+        var consent = getConsent();
+        if(consent === 'granted'){ loadGA(); banner.style.display='none'; }
+        else if(consent === 'denied'){ banner.style.display='none'; }
+        else { banner.style.display='flex'; }
+      })();
+
+      function sendDownloadEvent(label, fileUrl){
+        try{
+          gtag('event', 'file_download', { event_category: 'downloads', event_label: label, file_url: fileUrl });
+        }catch(e){
+          dataLayer.push({event:'file_download', event_category:'downloads', event_label:label, file_url:fileUrl});
+        }
+      }
+
+      // bind all direct download anchors
+      var dlAnchors = [].slice.call(document.querySelectorAll('a[href="'+installerUrl+'"]'));
+      dlAnchors.forEach(function(a){ a.addEventListener('click', function(){ sendDownloadEvent(installerFileName, installerUrl); }); });
+
+      // Fill last modified + meta
+      function setLastModified(){
+        var lm = document.lastModified || new Date().toISOString();
+        var el = document.getElementById('lastModified');
+        var meta = document.querySelector('meta[name="last-modified"]');
+        if(el) el.textContent = lm;
+        if(meta) meta.content = lm;
+      }
+      setLastModified();
+
+      window.scrollToCookie = function(e){ e && e.preventDefault(); banner && banner.scrollIntoView({behavior:'smooth'}); banner.style.display='flex'; }
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ banner.style.display='none'; } });
+    })();
+  </script>
+</body>
+</html>

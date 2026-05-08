@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fix VideoPad on Windows — Install, Codec, and Export Troubleshooting</title>
+  <meta name="description" content="Troubleshoot VideoPad on Windows 10 & 11: installer blocked, SmartScreen, antivirus, missing codecs, export fails, and performance issues. Safe direct .exe included.">
+  <link rel="canonical" href="https://videopad-desktop.github.io/troubleshooting-windows.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fix VideoPad on Windows — Install, Codec, and Export Troubleshooting">
+  <meta property="og:description" content="Step-by-step fixes for installer issues, SmartScreen, codecs, and export errors. Includes safe direct download for VideoPad.">
+  <meta property="og:image" content="https://videopad-desktop.github.io/og-image.png">
+  <meta property="og:url" content="https://videopad-desktop.github.io/troubleshooting-windows.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- last-modified meta (filled by JS) -->
+  <meta name="last-modified" content="">
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f1720;
+      --text:#f5f7fa;
+      --muted:#9aa5b1;
+      --accent:#d32f2f; /* red CTA */
+      --accent-2:#1e88e5; /* blue secondary */
+      --max-width:1100px;
+      --radius:10px;
+      --focus: 3px solid rgba(30,136,229,0.35);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;background:var(--bg);color:var(--text);margin:0}
+    a{color:var(--accent-2);text-decoration:none}
+    header{border-bottom:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .container{max-width:var(--max-width);margin:0 auto;padding:22px}
+    .nav{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{width:44px;height:44px}
+    nav ul{display:flex;gap:10px;align-items:center;list-style:none;padding:0;margin:0}
+    nav li a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
+    nav li a:hover, nav li a:focus{color:var(--text);background:rgba(255,255,255,0.02)}
+
+    main{padding:32px 0}
+    .hero{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    h1{margin:0 0 10px;font-size:28px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent-2);border:2px solid rgba(255,255,255,0.04)}
+    .btn.inline{padding:8px 12px;font-weight:600}
+    .btn:focus{outline:none;box-shadow:var(--focus)}
+
+    .small{font-size:13px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+    .list{display:flex;flex-direction:column;gap:8px}
+
+    details{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+    details+details{margin-top:8px}
+
+    footer{padding:26px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    /* Cookie banner */
+    .cookie{position:fixed;left:20px;right:20px;bottom:20px;background:var(--panel);padding:14px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.7);display:flex;gap:14px;align-items:center;z-index:999}
+    .cookie p{margin:0;color:var(--muted)}
+    .cookie .actions{margin-left:auto;display:flex;gap:8px}
+    .cookie .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav ul{display:none}
+    }
+    @media (max-width:480px){
+      .container{padding:14px}
+      h1{font-size:22px}
+      .card{padding:14px}
+    }
+
+    a:focus, button:focus{outline:none;box-shadow:var(--focus);border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <svg aria-hidden="true"><use href="#logo-vp"></use></svg>
+        <div>
+          <div style="font-weight:800">VideoPad Desktop</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">Windows — Troubleshooting</div>
+        </div>
+      </div>
+      <nav style="margin-left:auto">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="download-windows.html">Download</a></li>
+          <li><a href="features-windows.html">Features</a></li>
+          <li><a href="beginner-guide.html">Beginner's Guide</a></li>
+          <li><a href="export-youtube-tiktok.html">Export Presets</a></li>
+          <li><a href="troubleshooting-windows.html" aria-current="page">Troubleshooting</a></li>
+          <li><a href="free-licensing-safety.html">Licensing</a></li>
+          <li><a href="compare-windows.html">Compare</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero">
+      <section>
+        <div class="card">
+          <h1>Fix VideoPad on Windows — Install, Codec, and Export Troubleshooting</h1>
+          <p class="lead">Quick fixes for the most common issues on Windows 10 & 11: installer blocked by SmartScreen, antivirus flags, missing codecs, export errors, and performance hiccups.</p>
+
+          <div class="grid">
+            <div class="card">
+              <h3 style="margin-top:0">Quick Answer</h3>
+              <p class="small">If the installer is blocked, verify the source is <b>nchsoftware.com</b>, then allow and run it. For export issues, test a short clip with default presets. See detailed steps below.</p>
+              <div style="margin-top:10px">
+                <a class="btn inline" id="downloadInline1" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+                  <svg width="14" height="14" aria-hidden="true"><use href="#icon-download"/></svg>
+                  Download installer again
+                </a>
+                <a class="btn inline secondary" href="download-windows.html">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#icon-file"/></svg>
+                  Go to Download page
+                </a>
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="margin-top:0">At a glance</h3>
+              <ul class="small list">
+                <li>Windows 10 & 11 supported (64‑bit recommended)</li>
+                <li>Installer: vppsetup.exe from NCH Software</li>
+                <li>Need help exporting? Try YouTube/TikTok presets</li>
+              </ul>
+              <div style="margin-top:10px">
+                <a class="btn inline secondary" href="export-youtube-tiktok.html">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#icon-export"/></svg>
+                  Export presets
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h2 style="margin-top:0">Common issues and fixes</h2>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-shield"/></svg> Installer blocked by SmartScreen</summary>
+            <ol class="small">
+              <li>Ensure the file was downloaded from <b>nchsoftware.com</b> (see file properties → Digital Signatures).</li>
+              <li>Double‑click vppsetup.exe. If SmartScreen appears, click <b>More info</b> → <b>Run anyway</b>.</li>
+              <li>Follow the on‑screen wizard. If still blocked, right‑click → <b>Properties</b> → check <b>Unblock</b> → Apply → Run.</li>
+            </ol>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-av"/></svg> Antivirus flagged the installer</summary>
+            <ul class="small list">
+              <li>False positives can happen with new builds. Verify the source is <b>nchsoftware.com</b>.</li>
+              <li>Update antivirus definitions and retry the download.</li>
+              <li>If needed, temporarily allow the installer, then re‑enable protection after installation.</li>
+            </ul>
+            <div style="margin-top:8px">
+              <a class="btn inline" id="downloadInline2" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+                <svg width="14" height="14" aria-hidden="true"><use href="#icon-download"/></svg>
+                Re‑download from source
+              </a>
+            </div>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-admin"/></svg> Installer won’t start or gets stuck</summary>
+            <ul class="small list">
+              <li>Right‑click the installer → <b>Run as administrator</b>.</li>
+              <li>Free up disk space (~200 MB+) and close other installers.</li>
+              <li>Restart Windows and try again from a clean boot.</li>
+              <li>Download a fresh copy of <b>vppsetup.exe</b> using the buttons on this page.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-codec"/></svg> Missing codecs or video won’t import</summary>
+            <ul class="small list">
+              <li>Ensure Windows is up to date (Settings → Windows Update).</li>
+              <li>On Windows N editions, install the <b>Media Feature Pack</b> from Microsoft.</li>
+              <li>Transcode incompatible clips to H.264 MP4 (a widely supported format) and retry.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-audio"/></svg> Export has no audio or fails at 0%</summary>
+            <ul class="small list">
+              <li>Try exporting a short 10‑second clip with default settings (MP4 H.264/AAC).</li>
+              <li>Check that your timeline audio isn’t muted and meters show activity.</li>
+              <li>On Windows N, install the <b>Media Feature Pack</b> to enable AAC codecs.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-gpu"/></svg> Crashes, freezes, or slow performance</summary>
+            <ul class="small list">
+              <li>Update your GPU drivers (NVIDIA/AMD/Intel).</li>
+              <li>Close background apps and large browser tabs while exporting.</li>
+              <li>Use proxy/low‑res preview if available; keep projects on fast local storage.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary><svg width="16" height="16" style="vertical-align:-3px" aria-hidden="true"><use href="#icon-license"/></svg> Is VideoPad free or paid?</summary>
+            <p class="small">VideoPad offers a free option for non‑commercial use with limitations. For licensing details and safety notes, see <a href="free-licensing-safety.html">Licensing & Safety</a>.</p>
+          </details>
+
+          <div style="margin-top:12px" class="small">
+            Still stuck? Reinstall using the official installer and follow the <a href="beginner-guide.html">Beginner's Guide</a>. For vendor support, visit <a href="https://www.nchsoftware.com/support/" rel="noopener" target="_blank">NCH Support</a>.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Quick tools</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" id="downloadSide" href="https://www.nchsoftware.com/videopad/de/vppsetup.exe" rel="noopener noreferrer" download>
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-download"/></svg>
+              Download installer
+            </a>
+            <a class="btn secondary" href="download-windows.html">
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-file"/></svg>
+              All download options
+            </a>
+          </div>
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 6px 0">System check</h4>
+            <ul class="small list">
+              <li>Windows 10/11 64‑bit recommended</li>
+              <li>2 GB RAM+ and 200 MB free disk</li>
+              <li>Install Windows Media Feature Pack (N editions)</li>
+            </ul>
+          </div>
+          <div class="small">New to editing? Start with the <a href="beginner-guide.html">Beginner's Guide</a> and then try <a href="export-youtube-tiktok.html">export presets</a>.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer style="margin-top:22px">
+      <div class="card footer-grid">
+        <div>
+          <div style="font-weight:800">VideoPad Desktop</div>
+          <div class="small">Hosted on GitHub Pages — <a href="https://videopad-desktop.github.io/">videopad-desktop.github.io</a></div>
+          <div style="height:8px"></div>
+          <div class="small">We may earn commissions for referrals. The installer file is provided by NCH Software: <a href="https://www.nchsoftware.com/">nchsoftware.com</a>.</div>
+        </div>
+        <div style="text-align:right">
+          <div class="small">Need privacy? You can <a href="#cookie" onclick="scrollToCookie(event)">manage cookies</a> in the cookie panel.</div>
+          <div style="height:8px"></div>
+          <div class="small">Last updated: <span id="lastModified">—</span></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SVG symbols -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="logo-vp" viewBox="0 0 48 48">
+      <rect x="0" y="0" width="48" height="48" rx="8" fill="#0f1720"></rect>
+      <path d="M12 34v-20l14 10-14 10z" fill="#d32f2f"></path>
+      <circle cx="36" cy="12" r="6" fill="#1e88e5"></circle>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM12 3v10.59l3.29-3.3 1.42 1.42L12 17.41l-4.71-4.7 1.42-1.42L12 13.59V3h0z"/></symbol>
+    <symbol id="icon-export" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2zM11 4h2v8h3l-4 4-4-4h3z"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l7 4v6c0 5-3.4 9.4-7 10-3.6-.6-7-5-7-10V6l7-4z"/></symbol>
+    <symbol id="icon-av" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1a9 9 0 100 18 9 9 0 000-18zM2 21h20v2H2z"/></symbol>
+    <symbol id="icon-admin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l8 4v6c0 4.8-3 9.3-8 10-5-0.7-8-5.2-8-10V6l8-4z"/><path fill="currentColor" d="M9 14h6v2H9zM9 10h6v2H9z"/></symbol>
+    <symbol id="icon-codec" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v4H4zM4 10h10v4H4zM4 16h16v4H4z"/></symbol>
+    <symbol id="icon-audio" viewBox="0 0 24 24"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/></symbol>
+    <symbol id="icon-gpu" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7h18v10H3zM6 10h3v2H6zM12 10h6v2h-6z"/></symbol>
+    <symbol id="icon-license" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h12v20H6zM8 6h8v2H8zM8 10h8v2H8zM8 14h5v2H8z"/></symbol>
+  </svg>
+
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="cookie" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div style="max-width:640px">
+      <strong>We use cookies for analytics.</strong>
+      <p style="margin-top:6px">Allow Google Analytics to help us improve this site. You can Accept, Decline, or Close to decide later.</p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="cookieAccept">Accept</button>
+      <button class="btn ghost" id="cookieDecline">Decline</button>
+      <button class="btn ghost" id="cookieClose" aria-label="Close cookie banner">Close</button>
+    </div>
+  </div>
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Installer blocked by SmartScreen", "acceptedAnswer": {"@type": "Answer", "text": "Verify the file comes from nchsoftware.com. Click More info → Run anyway, or right‑click → Properties → Unblock."}},
+      {"@type": "Question", "name": "Antivirus flagged the installer", "acceptedAnswer": {"@type": "Answer", "text": "Update AV definitions and re‑download from nchsoftware.com. If it's a false positive, allow the installer temporarily."}},
+      {"@type": "Question", "name": "Missing codecs or import failures", "acceptedAnswer": {"@type": "Answer", "text": "Update Windows, install Media Feature Pack on N editions, or transcode clips to H.264 MP4 and retry."}},
+      {"@type": "Question", "name": "Export has no audio or fails", "acceptedAnswer": {"@type": "Answer", "text": "Export a short test with default MP4 H.264/AAC. Ensure audio tracks aren't muted. Install Media Feature Pack if needed."}},
+      {"@type": "Question", "name": "Crashes or slow performance", "acceptedAnswer": {"@type": "Answer", "text": "Update GPU drivers, close background apps, and use lower‑res previews or fast local storage."}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Allow a trusted app through Windows SmartScreen",
+    "step": [
+      {"@type": "HowToStep", "name": "Open the installer", "text": "Double‑click vppsetup.exe."},
+      {"@type": "HowToStep", "name": "SmartScreen prompt", "text": "If Windows SmartScreen appears, click More info."},
+      {"@type": "HowToStep", "name": "Run anyway", "text": "Confirm the publisher and choose Run anyway for the trusted source."}
+    ],
+    "tool": [{"@type": "HowToTool", "name": "Windows 10 or Windows 11 PC"}]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VideoPad Video Editor",
+    "url": "https://videopad-desktop.github.io/troubleshooting-windows.html",
+    "applicationCategory": "VideoEditing",
+    "operatingSystem": ["Windows 10","Windows 11"],
+    "softwareVersion": "latest",
+    "downloadUrl": "https://www.nchsoftware.com/videopad/de/vppsetup.exe",
+    "publisher": {"@type": "Organization", "name": "VideoPad Desktop (GitHub Pages)", "url": "https://videopad-desktop.github.io/"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://videopad-desktop.github.io/"},
+      {"@type": "ListItem", "position": 2, "name": "Troubleshooting", "item": "https://videopad-desktop.github.io/troubleshooting-windows.html"}
+    ]
+  }
+  </script>
+
+  <script>
+    (function(){
+      var GA_ID = 'G-566XV70669';
+      var installerFileName = 'vppsetup.exe';
+      var installerUrl = 'https://www.nchsoftware.com/videopad/de/vppsetup.exe';
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} // wrapper
+
+      function loadGA(){
+        if(window._gaLoaded) return;
+        window._gaLoaded = true;
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(gtagScript);
+        gtag('js', new Date());
+        gtag('config', GA_ID, { 'anonymize_ip': true });
+      }
+
+      function setConsent(state){
+        try{localStorage.setItem('vp_ga_consent', state);}catch(e){}
+      }
+      function getConsent(){
+        try{return localStorage.getItem('vp_ga_consent');}catch(e){return null}
+      }
+
+      var banner = document.getElementById('cookieBanner');
+      var btnAccept = document.getElementById('cookieAccept');
+      var btnDecline = document.getElementById('cookieDecline');
+      var btnClose = document.getElementById('cookieClose');
+
+      btnAccept.addEventListener('click', function(){ setConsent('granted'); loadGA(); banner.style.display='none'; });
+      btnDecline.addEventListener('click', function(){ setConsent('denied'); banner.style.display='none'; });
+      btnClose.addEventListener('click', function(){ banner.style.display='none'; });
+
+      (function(){
+        var consent = getConsent();
+        if(consent === 'granted'){ loadGA(); banner.style.display='none'; }
+        else if(consent === 'denied'){ banner.style.display='none'; }
+        else { banner.style.display='flex'; }
+      })();
+
+      function sendDownloadEvent(label, fileUrl){
+        try{
+          gtag('event', 'file_download', { event_category: 'downloads', event_label: label, file_url: fileUrl });
+        }catch(e){
+          dataLayer.push({event:'file_download', event_category:'downloads', event_label:label, file_url:fileUrl});
+        }
+      }
+
+      // bind all direct download anchors
+      var dlAnchors = [].slice.call(document.querySelectorAll('a[href="'+installerUrl+'"]'));
+      dlAnchors.forEach(function(a){ a.addEventListener('click', function(){ sendDownloadEvent(installerFileName, installerUrl); }); });
+
+      // Fill last modified + meta
+      function setLastModified(){
+        var lm = document.lastModified || new Date().toISOString();
+        var el = document.getElementById('lastModified');
+        var meta = document.querySelector('meta[name="last-modified"]');
+        if(el) el.textContent = lm;
+        if(meta) meta.content = lm;
+      }
+      setLastModified();
+
+      window.scrollToCookie = function(e){ e && e.preventDefault(); banner && banner.scrollIntoView({behavior:'smooth'}); banner.style.display='flex'; }
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ banner.style.display='none'; } });
+    })();
+  </script>
+</body>
+</html>

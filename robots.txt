@@ -1,0 +1,7 @@
+# robots.txt for VideoPad Desktop on GitHub Pages
+# Allow all crawlers and point to the XML sitemap
+
+User-agent: *
+Allow: /
+
+Sitemap: https://videopad-desktop.github.io/sitemap.xml
